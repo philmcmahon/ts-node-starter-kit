@@ -18,14 +18,14 @@ const ExampleComponent: React.FC<{}> = () => (
             font-size: 18px;
         `}
     >
-        Foo
+        Hello
         <span
             className={css`
-                font-size: 12px;
-                color: #3399ff;
+                font-weight: bold;
+                color: grey;
             `}
         >
-            Bar
+            World
         </span>
     </div>
 );
