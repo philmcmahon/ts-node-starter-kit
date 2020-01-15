@@ -3,6 +3,7 @@ import awsServerlessExpress from 'aws-serverless-express';
 import { Context } from 'aws-lambda';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { css } from 'emotion';
 
 const PORT = 3030;
 
