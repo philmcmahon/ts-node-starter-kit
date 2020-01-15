@@ -12,5 +12,7 @@ Core technologies included:
 
 -   TypeScript
 -   Node
+-   React
+-   Emotion (CSS-in-JS library)
 -   Express (HTTP server)
 -   Jest (testing library)
