@@ -1,6 +1,6 @@
-# Guardian Typescript server-side starter kit
+# Guardian TypeScript server-side starter kit
 
-A basic starter-kit for a Typescript server-side (only) React project.
+A basic starter-kit for a TypeScript server-side (only) React project.
 
 Commands:
 
@@ -10,7 +10,7 @@ Commands:
 
 Core technologies included:
 
--   typescript
--   node
--   express (http server)
--   jest (testing library)
+-   TypeScript
+-   Node
+-   Express (HTTP server)
+-   Jest (testing library)
