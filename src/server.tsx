@@ -2,8 +2,9 @@ import express from 'express';
 import awsServerlessExpress from 'aws-serverless-express';
 import { Context } from 'aws-lambda';
 import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { css } from 'emotion';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { extractCritical } from 'emotion-server';
 
 const PORT = 3030;
 
@@ -11,10 +12,27 @@ const app = express();
 
 app.use(express.json({ limit: '50mb' }));
 
+const ExampleComponent: React.FC<{}> = () => (
+    <div
+        className={css`
+            font-size: 18px;
+        `}
+    >
+        Foo
+        <span
+            className={css`
+                font-size: 12px;
+                color: #3399ff;
+            `}
+        >
+            Bar
+        </span>
+    </div>
+);
+
 app.get('/', (req, res) => {
-    const ExampleComponent: React.FC<{}> = () => <div>Foo</div>;
-    const html = renderToStaticMarkup(<ExampleComponent />);
-    res.send({ html });
+    const { html, css } = extractCritical(renderToStaticMarkup(<ExampleComponent />));
+    res.send({ html, css });
 });
 
 // If local then don't wrap in serverless
