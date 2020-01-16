@@ -1,0 +1,16 @@
+{
+    "projectName": "__RIFF_RAFF_PROJECT_NAME__",
+    "vcsURL": "https://github.com/guardian/__APP_NAME__",
+    "actions": [
+        {
+            "action": "lambda",
+            "path": "dist",
+            "compress": "zip"
+        },
+        {
+            "action": "cloudformation",
+            "path": "cloudformation.yaml",
+            "compress": false
+        }
+    ]
+}

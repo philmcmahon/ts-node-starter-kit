@@ -1,0 +1,19 @@
+stacks: [__STACK__]
+regions: [eu-west-1]
+
+deployments:
+    cloudformation:
+        type: cloud-formation
+        app: __APP_NAME__
+        parameters:
+            cloudFormationStackName: __APP_NAME__
+            templatePath: cloudformation.yaml
+            cloudFormationStackByTags: false
+    lambda:
+        type: aws-lambda
+        dependencies: [cloudformation]
+        parameters:
+            prefixStack: true
+            bucket: __BUCKET_NAME__
+            fileName: lambda.zip
+            functionNames: [__APP_NAME__]
